@@ -17,8 +17,8 @@ print('Connect Status : ' ,client.connect())
 client.write_register(address = 0x00 ,value =22881,slave=SLAVE_ADDRESS)
 
 client.write_register(address = 0x01 ,value =0x01,slave=SLAVE_ADDRESS)
-client.write_register(address = 0x02 ,value =0x0C,slave=SLAVE_ADDRESS)
-client.write_register(address = 0x10 ,value =0x00,slave=SLAVE_ADDRESS)
+client.write_register(address = 0x02 ,value =0x00,slave=SLAVE_ADDRESS)
+client.write_register(address = 0x10 ,value =0x02,slave=SLAVE_ADDRESS)
 client.write_register(address = 0x40 ,value =0x01,slave=SLAVE_ADDRESS)
 read0 = client.read_holding_registers(address = 0x01 ,count =2,slave=SLAVE_ADDRESS).registers  #read 0x01,0x02  (Base,Endeff)
 Base_System_Status,End_Effector_Status = read0[0],read0[1]
@@ -27,7 +27,7 @@ client.close()
 
 
 
-print(End_Effector_Status,type(End_Effector_Status))
+# print(End_Effector_Status,type(End_Effector_Status))
 
 
 # bit0 = End_Effector_Status&0x01
